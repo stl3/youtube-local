@@ -3337,7 +3337,8 @@ typeof navigator === "object" && (function (global, factory) {
     // Default time to skip when rewind/fast forward
     seekTime: 10,
     // Default volume
-    volume: 1,
+    // volume: 1,
+    volume: 0.1,
     muted: false,
     // Pass a custom duration
     duration: null,
