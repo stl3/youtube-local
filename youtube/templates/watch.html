@@ -208,8 +208,10 @@
                 grid-area: v-checkbox;
                 justify-self:end;
                 align-self: start;
-                height: 25px;
-                width: 25px;
+                <!-- height: 25px;
+                width: 25px; -->
+                height: 15px;
+                width: 15px;
             }
             .video-info > .direct-link{
                 grid-area: v-direct-link;
@@ -575,11 +577,7 @@ Reload without invidious (for usage of new identity button).</a>
                     {% for track in music_list %}
                         <tr>
                             {% for attribute in music_attributes %}
-                                {% if attribute.lower() == 'title' and track['url'] is not none %}
-                                    <td><a href="{{ track['url'] }}">{{ track.get(attribute.lower(), '') }}</a></td>
-                                {% else %}
-                                    <td>{{ track.get(attribute.lower(), '') }}</td>
-                                {% endif %}
+                                <td>{{ track.get(attribute.lower(), '') }}</td>
                             {% endfor %}
                         </tr>
                     {% endfor %}

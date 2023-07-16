@@ -6,7 +6,10 @@
     main > * {
         max-width: 800px;
         margin: auto;
-    }
+        <!-- display:flex;
+        flex-direction: row;
+        padding-right:0px; -->
+        }
         #result-info{
             margin-top: 10px;
             margin-bottom: 10px;
@@ -20,9 +23,10 @@
             padding-left: 10px;
             padding-right: 10px;
         }
-            .badge{
-                background-color:#cccccc;
-            }
+        .badge{
+            background-color:#cccccc;
+        }
+              
 {% endblock style %}
 
 {% block main %}
@@ -35,11 +39,14 @@
                 <div>Did you mean <a href="{{ corrections['corrected_query_url'] }}">{{ common_elements.text_runs(corrections['corrected_query_text']) }}</a></div>
 {% endif %}
             </div>
-            <div class="item-list">
+           
+            <nav class="item-grid">
                 {% for info in results %}
-                    {{ common_elements.item(info, description=true) }}
+                <!-- (info, description=false, horizontal=true, include_author=true, include_badges=true, lazy_load=false) -->
+                    {{ common_elements.item(info, description=false, include_author=true, horizontal=false, include_badges=true) }}
                 {% endfor %}
-            </div>
+            </nav>
+
             <nav class="page-button-row">
                 {{ common_elements.page_buttons(estimated_pages, '/https://www.youtube.com/results', parameters_dictionary) }}
             </nav>

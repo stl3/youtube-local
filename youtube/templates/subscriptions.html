@@ -23,6 +23,14 @@
         .video-section .page-button-row{
             justify-content: center;
         }
+    .subscription-manager-container {
+         display: inline-block;
+         border: 1px solid white;
+         <!-- border: 3px solid #333333; -->
+         <!-- border: 3px solid lightgray; -->
+         <!-- padding: 30px !important; /* Increase the padding and add !important */ -->
+         padding: 20px;  
+    }        
     .subscriptions-sidebar-fixed-container{
         display: none;
     }
@@ -103,6 +111,14 @@
 
 {% block main %}
     <div class="video-section">
+        <div class="subscription-manager-container">
+        <a href="/youtube.com/subscription_manager" class="sub-manager-link">Subscription Manager</a>
+        <form method="POST" class="refresh-all">
+            <input type="submit" value="Check All">
+            <input type="hidden" name="action" value="refresh">
+            <input type="hidden" name="type" value="all">
+        </form>
+        </div><br><br>  
         {% if current_tag %}
             <h2 class="current-tag">{{ current_tag }}</h2>
         {% endif %}
@@ -116,8 +132,9 @@
             {{ common_elements.page_buttons(num_pages, '/youtube.com/subscriptions', parameters_dictionary) }}
         </nav>
     </div>
-
-    <input id="subscriptions-sidebar-toggle-cbox" type="checkbox" hidden>
+    
+        
+    <!-- <input id="subscriptions-sidebar-toggle-cbox" type="checkbox" hidden>
     <div class="subscriptions-sidebar">
         <div class="subscriptions-sidebar-fixed-container">
             <div class="subscriptions-sidebar-toggle-button">
@@ -175,6 +192,6 @@ Sidebar</label>
                 </li>
             {% endfor %}
         </ol>
-    </div>
+    </div> -->
 
 {% endblock main %}
